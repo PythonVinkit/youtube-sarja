@@ -1,0 +1,30 @@
+version: 1
+disable_existing_loggers: False  # allows logging from another modules
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  filehandler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: log.txt
+    mode: a
+    maxBytes: 1048576
+    backupCount: 10
+  errorfilehandler:
+    class: logging.handlers.RotatingFileHandler
+    level: WARNING
+    formatter: simple
+    filename: errors.txt
+    mode: a
+    maxBytes: 1048576
+    backupCount: 10
+root:
+  level: DEBUG
+  handlers: [console, filehandler, errorfilehandler]
