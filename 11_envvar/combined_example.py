@@ -48,11 +48,6 @@ def main():
         retries=args.n_retry
     )
 
-    # Lisää mahdollisuuksia:
-    # - monimutkaisempia (tyyppi) validointeja, esim. päivämäärä
-    # - useita parametrejä (lista)
-    # - parsereita voi yhdistellä, ns. sub_parser
-
 
 if __name__ == '__main__':
     main()
