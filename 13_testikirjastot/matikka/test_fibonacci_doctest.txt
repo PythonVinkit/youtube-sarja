@@ -1,0 +1,11 @@
+>>> from matikka.fibonacci import fibonacci_of  # absolute import!
+>>> fibonacci_of(5)
+5
+>>> fibonacci_of(6)
+8
+>>> fibonacci_of(7)
+13
+>>> fibonacci_of('5')
+Traceback (most recent call last):
+    ...
+ValueError: Positive integer number expected, got "5"
