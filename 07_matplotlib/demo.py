@@ -43,13 +43,14 @@ axs[0].set_xticks(np.linspace(0, 10*np.pi, 10+1))
 axs[0].set_yticks(np.linspace(-1,1,9))
 
 # Tehdään oma esitysfunktio, joka palauttaa mikä piin monikerta merkin paikalla on
-def piformat(x, pos):
-    if np.abs(x-0) < 0.001:
+def piformat(value, pos):
+    ''''Palauttaa arvon 'pos' mukaisen piin monikerran merkkijonona'''
+    if np.abs(value-0) < 0.001:
         return '0'
-    if np.abs(x - np.pi) < 0.001:
-        return '$\pi$'
+    if np.abs(value - np.pi) < 0.001:
+        return r'$\pi$'
     else:
-        return '${:d}\cdot \pi$'.format(pos)
+        return r'${:d}\cdot \pi$'.format(pos)
 
 formatter = FuncFormatter(piformat)
 
@@ -58,12 +59,11 @@ axs[0].xaxis.set_major_formatter(formatter)
 # Suurennetaan akselin merkkien kokoa ja asetetaan uusi väri
 axs[0].tick_params(**{'labelsize': 14, 'labelcolor': 'darkred'})
 
-''' 
- Interaktiiviseen kuvaajaan tämä on pakollinen
- koska olemme asettaneet FuncFormatter-olion x-akselille.
- Jos format_coord ei aseteta, hiiren liike kuvan päällä aiheuttaa
- virheen.
-'''
+# Interaktiiviseen kuvaajaan tämä on pakollinen
+# koska olemme asettaneet FuncFormatter-olion x-akselille.
+# Jos format_coord ei aseteta, hiiren liike kuvan päällä aiheuttaa
+# virheen.
+
 axs[0].format_coord = lambda x, y:  "x={:g}, y={:g}".format(x, y)
 
 # Toinen kuvaaja: sininen kosinikäyrä
