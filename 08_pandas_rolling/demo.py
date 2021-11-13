@@ -23,8 +23,3 @@ dataNokia.plot(y=['Nokia', 'juoksevaKA'],
     'title': 'Nokia',
     'figsize': (10,6)})
 plt.show()
-
-
-
-
-
